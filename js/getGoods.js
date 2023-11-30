@@ -2,7 +2,7 @@ const getGoods = () => {
   const links = document.querySelectorAll('.navigation-link')
   const linkViewAll = document.querySelector('#newArrivalMore')
 
-  console.log(linkViewAll)
+
   const renderGoods = (goods) => {
     const goodsContainer = document.querySelector('.long-goods-list')
 
@@ -64,20 +64,12 @@ const getGoods = () => {
     renderGoods(JSON.parse(localStorage.getItem('goods')))
   }
 
-  if (window.location.pathname === "/index.html") {
+  if (linkViewAll) {
     linkViewAll.addEventListener('click', (event) => {
       event.preventDefault()
-      const linkValue = linkViewAll.textContent
-      const category = linkViewAll.dataset.field
-      getData(linkValue, category)
+      getData()
     })
   }
-  // localStorage.setItem('goods', JSON.stringify([1, 2, 3, 4, 5]))
-  // const goods = JSON.parse(localStorage.getItem('goods'))
-  // console.log(goods)
-
-  // localStorage.removeItem('goods')
-  // console.log(localStorage)
 };
 
 getGoods();
